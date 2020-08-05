@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes, { element } from 'prop-types';
-import classes from './Input.css'
+import classes from './Input.module.css'
 
 const Input = props => {
 
@@ -51,7 +51,6 @@ const Input = props => {
 
     return (
         <div className={classes.Input}>
-            <label className={classes.Label}>{props.label}</label>
             {inputElement}
         </div>
     );
