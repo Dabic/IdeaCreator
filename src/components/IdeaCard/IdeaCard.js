@@ -38,7 +38,11 @@ const IdeaCard = props => {
             </div>
             <div className={classes.CardFooter}>
                 <div className={classes.CardContent}>
-                    <span className={classes.CardTitle}>{props.idea.title} ({props.idea.rating}/10)</span>
+                    <span className={classes.CardTitle}>{props.idea.title}
+                        <span className={classes.CardRating}>
+                            Rating: ({props.idea.rating}/10)
+                        </span>
+                    </span>
                     <ShowMoreText>
                         {props.idea.desc}
                     </ShowMoreText>

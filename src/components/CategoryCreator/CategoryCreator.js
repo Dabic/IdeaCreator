@@ -3,8 +3,10 @@ import Input from "../UI/Forms/Input/Input";
 import Button from "../UI/Button/Button";
 import classes from './CategoryCreator.module.css'
 import axios from "../../axios-conf";
+import {connect} from 'react-redux';
+import * as actions from "../../store/actions/actionCreator";
 
-const CategoryCreator = () => {
+const CategoryCreator = props => {
 
     const [categoryForm, setCategoryForm] = useState({
         elementType: 'input',
@@ -12,30 +14,33 @@ const CategoryCreator = () => {
             type: 'text',
             placeholder: 'Category Name'
         },
+        validation: true,
         value: '',
-        validation: {
-            required: true,
-        },
         valid: false,
         touched: false
     });
 
+    const [isFormValid, setIsFormValid] = useState(false);
+
+
     const onChangeHandler = (event) => {
         const updatedCategory = {...categoryForm};
         updatedCategory.value = event.target.value;
+        updatedCategory.touched = true;
+        updatedCategory.valid = (event.target.value.length > 2 && event.target.value.length < 10) || event.target.value.length === 0;
+        setIsFormValid(event.target.value.length > 2 && event.target.value.length < 10);
         setCategoryForm(updatedCategory);
     }
 
-    const onSubmit = () => {
-        axios.post('category.json', {name: categoryForm.value})
-            .then(response => {
-
-            })
+    const onSubmit = (event) => {
+        event.preventDefault();
+        props.onCreateCategory({name: categoryForm.value});
     }
 
     return (
         <div className={classes.CategoryCreator}>
-            <form>
+            <span className={classes.Placeholder}>Create a Category</span>
+            <form className={classes.Form}>
                 <Input
                     elementType={categoryForm.elementType}
                     elementConfig={categoryForm.elementConfig}
@@ -44,11 +49,23 @@ const CategoryCreator = () => {
                     shouldValidate={categoryForm.validation}
                     touched={categoryForm.touched}
                     changed={(event) => onChangeHandler(event)}/>
-            </form>
 
-            <Button buttonType={'Success'} buttonClicked={onSubmit}>Create</Button>
+                <Button buttonType={'Success'} disabled={!isFormValid} buttonClicked={onSubmit}>CREATE</Button>
+            </form>
         </div>
     );
 };
 
-export default CategoryCreator;
+const mapStateToProps = state => {
+    return {
+        ids: state.ids.categories
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onCreateCategory: (category) => dispatch(actions.createCategory(category))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryCreator);

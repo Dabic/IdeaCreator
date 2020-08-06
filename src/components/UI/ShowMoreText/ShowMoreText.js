@@ -4,12 +4,13 @@ import classes from './ShowMoreText.module.css'
 
 const ShowMoreText = props => {
 
-    const [mode, setMode] = useState('Show more');
+    const [mode, setMode] = useState('Show less');
     const [text, setText] = useState(props.children);
     const elementRef = useRef(null);
 
     useEffect(() => {
         calculateNewText(mode);
+        setMode('Show more')
     }, [elementRef.current])
 
 

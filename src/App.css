@@ -1,3 +1,18 @@
 .App {
   text-align: center;
 }
+.MuiFab-primary {
+  position: fixed !important;
+  bottom: 30px !important;
+  right: 30px !important;
+  background-color: #4CAF50 !important;
+  transform: scale(1.1);
+  box-shadow: 3px 3px 10px 0 #2a662b !important;
+}
+
+@media (hover: hover) {
+  .MuiFab-primary:hover {
+    transform: scale(1.2);
+    transition: all 0.3s;
+  }
+}

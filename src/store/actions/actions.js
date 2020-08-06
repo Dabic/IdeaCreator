@@ -1,0 +1,9 @@
+export const CREATE_IDEA = 'CREATE_IDEA';
+export const FETCH_IDEAS = 'FETCH_IDEAS';
+export const DELETE_IDEA = 'DELETE_IDEA';
+export const UPDATE_IDEA = 'UPDATE_IDEA';
+export const CREATE_CATEGORY = 'CREATE_CATEGORY';
+export const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
+export const UPDATE_CATEGORY = 'UPDATE_CATEGORY';
+export const DELETE_CATEGORY = 'DELETE_CATEGORY';
+

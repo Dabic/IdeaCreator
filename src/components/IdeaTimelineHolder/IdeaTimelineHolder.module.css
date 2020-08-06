@@ -1,0 +1,44 @@
+.IdeaTimelineHolder {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.TimelineHeader {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid #515EA8;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #515EA8;
+}
+.TimelineHeader span {
+    font-size: 20px;
+    font-family: "Google Sans",sans-serif;
+    margin: 0 20px;
+    color: white;
+    font-weight: bolder;
+}
+
+.TimelineHeader div {
+    margin-top: 0;
+    margin-right: 20px;
+    height: 5px;
+    width: 100%;
+    background-color: white;
+}
+
+.TimelineContent {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 10px 0 #838383;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #ccc;
+}
+
+.TimelineItems {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

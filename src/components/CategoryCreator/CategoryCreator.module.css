@@ -1,4 +1,19 @@
 .CategoryCreator {
+    text-align: left;
+}
+
+.Form {
     display: flex;
     align-items: center;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.Placeholder {
+    padding-left: 10px;
+    box-sizing: border-box;
+    font-weight: bold;
+    display: block;
+    height: auto;
 }
